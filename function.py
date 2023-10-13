@@ -1,4 +1,6 @@
 allword = []
+
+
 def getallword():
     """Get words from dico.txt and returns it as a list"""
     file = open("dico.txt", "r")
@@ -8,10 +10,12 @@ def getallword():
     print(len(allword), "mots trouvés")
     return allword
 
+
 def sizeofword():
     """Get the size of the word"""
     size = int(input("\nEntrez la taille du mot :"))
     return size
+
 
 def reducelist(allword):
     """Based on getallword() and sizeofword(), reduces the list of possible words"""
@@ -24,10 +28,12 @@ def reducelist(allword):
     print(len(reduced), "mots possible")
     return reduced
 
+
 def firstletter():
     """Get the first letter of the word - Could be fused with sizeofword()"""
     fl = input("Entrez la première lettre du mot :")
     return fl.upper()
+
 
 def reducedfl(reduced):
     """Reduces the list of possible words based on reducelist() and firstletter()"""
@@ -49,13 +55,17 @@ def getgoodletters(reducedfl):
     for i in range(len(word)):
         if correct[i] == "1":
             tocheck.append(word[i])
+        else:
+            tocheck.append("")
     print(tocheck)
 
     for word in reducedfl:
-        for i in range(len(tocheck)):
-            for j in range(len(word)):
-                if word[j] == tocheck[i]:
-                    reducedex.append(word)
+        for j in range(len(word)):
+            if tocheck[j] != "":
+                if word[j] != tocheck[j] and correct[j] == "1":
+                    break
+            if j == len(word) - 1:
+                reducedex.append(word)
 
     print(len(reducedex), "mots possible")
     return reducedex
