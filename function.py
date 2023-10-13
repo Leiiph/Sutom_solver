@@ -1,5 +1,6 @@
 allword = []
 def getallword():
+    """Get words from dico.txt and returns it as a list"""
     file = open("dico.txt", "r")
     for line in file.readlines():
         allword.append(line.strip())
@@ -8,10 +9,12 @@ def getallword():
     return allword
 
 def sizeofword():
+    """Get the size of the word"""
     size = int(input("\nEntrez la taille du mot :"))
     return size
 
 def reducelist(allword, size):
+    """Based on getallword() and sizeofword(), reduces the list of possible words"""
     reduced = []
     print("\nok!")
     for word in allword:
@@ -21,10 +24,12 @@ def reducelist(allword, size):
     return reduced
 
 def firstletter():
+    """Get the first letter of the word - Could be fused with sizeofword()"""
     fl = input("Entrez la première lettre du mot :")
     return fl.upper()
 
 def reducedfl(reduced):
+    """Reduces the list of possible words based on reducelist() and firstletter()"""
     reducedfl = []
     fl = firstletter()
     print("\nOK!")
