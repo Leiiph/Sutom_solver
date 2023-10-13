@@ -39,7 +39,8 @@ def reducedfl(reduced):
             reducedfl.append(word)
     print(len(reducedfl), "mots possible\n")
     return reducedfl
-    
+
+
 def getgoodletters(reducedfl):
     word = input("Entrez le mot :")
     correct = input("Entrez les lettres correctes (0: mauvais, 1: bon) :")
@@ -49,11 +50,12 @@ def getgoodletters(reducedfl):
         if correct[i] == "1":
             tocheck.append(word[i])
     print(tocheck)
-            
+
     for word in reducedfl:
-        print(tocheck[i])
-        if tocheck[i] == "1":
-            reducedex.append(word)
-            
+        for i in range(len(tocheck)):
+            for j in range(len(word)):
+                if word[j] == tocheck[i]:
+                    reducedex.append(word)
+
     print(len(reducedex), "mots possible")
     return reducedex
