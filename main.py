@@ -2,9 +2,10 @@ from function import *
 proposition = ""
 guess = []
 allword = getallword()
-reduced = reducelist(allword)
+size = sizeofword()
+reduced = reducelist(allword, size)
 reduce = reducedfl(reduced)
 
-g = getgoodletters(reduce)
+g = getgoodletters(reduce, size)
 
 print(g)
