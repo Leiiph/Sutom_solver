@@ -13,18 +13,15 @@ def getallword():
 
 def sizeofword():
     """Get the size of the word"""
-    size = int(input("\nEntrez la taille du mot :"))
-    return size
-
+    return int(input("\nEntrez la taille du mot :"))
+    
 
 def reducelist(allword, size):
     """Based on getallword() and sizeofword(), reduces the list of possible words"""
     reduced = []
     print("\nok!")
-    for word in allword:
-        if len(word) == size:
-            reduced.append(word)
-    print(len(reduced), "mots possible")
+    x = [reduced.append(word) for word in allword if len(word) == size]
+    print(len(x), "mots possible")
     return reduced
 
 
@@ -57,10 +54,7 @@ def getgoodletters(reducedfl, size):
     reducedex = []
     tocheck = []
     for i in range(len(word)):
-        if correct[i] == "1":
-            tocheck.append(word[i])
-        else:
-            tocheck.append("")
+        tocheck.append(word[i]) if correct[i] == 1 else tocheck.append("")
     print(tocheck)
 
     for word in reducedfl:
