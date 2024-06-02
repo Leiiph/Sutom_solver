@@ -22,7 +22,7 @@ def reducelist(allword, size):
     print("\nok!")
     x = [reduced.append(word) for word in allword if len(word) == size]
     print(len(x), "mots possible")
-    return reduced
+    return x
 
 
 def firstletter():
@@ -36,23 +36,19 @@ def reducedfl(reduced):
     reducedfl = []
     fl = firstletter()
     print("\nOK!")
-    for word in reduced:
-        if word[0] == fl:
-            reducedfl.append(word)
+    reducedfl = [reducedfl.append(word) for word in reduced if word[0] == fl]
     print(len(reducedfl), "mots possible\n")
     return reducedfl
 
 
 def getgoodletters(reducedfl, size):
     """Reduce the list of possible words based on the letters you know"""
-    word = ""
-    correct = ""
+    word, correct = ""
     while size != len(word):
         word = input("Entrez le mot :")
     while len(correct) != size:
         correct = input("Entrez les lettres correctes (0: mauvais, 1: bon) :")
-    reducedex = []
-    tocheck = []
+    reducedex, tocheck = []
     for i in range(len(word)):
         tocheck.append(word[i]) if correct[i] == 1 else tocheck.append("")
     print(tocheck)
